@@ -1,5 +1,9 @@
 {
     "cSpell.ignoreWords": [
         "bot"
-    ]
+    ],
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.vscode": true
+    }
 }

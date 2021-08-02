@@ -8,7 +8,7 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "C:\\Users\\Lukas\\Documents\\Lukas\\05 Programming Projects\\Trident Bot\\bot.py",
+            "program": "C:\\Users\\Lukas\\Documents\\Lukas\\05 Programming Projects\\TridentBot\\bot.py",
             "console": "integratedTerminal"
         }
     ]

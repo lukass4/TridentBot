@@ -1,7 +1,7 @@
 import discord
 from discord import client
 from discord.ext import commands
-from bot import embedMaker
+from bot import comingSoon, embedMaker
 
 class rockPaperScissors(commands.Cog):
 
@@ -14,7 +14,7 @@ class rockPaperScissors(commands.Cog):
 
     @commands.command()
     async def rps(self, ctx): # rock paper scissors command
-        await ctx.send(embed=embedMaker("Command not available", "This command is coming soon!", discord.Color.blue())) # command error
+        await ctx.send(embed=comingSoon()) # command error
 
 def setup(client):
     client.add_cog(rockPaperScissors(client))
