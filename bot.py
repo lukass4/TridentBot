@@ -3,7 +3,7 @@ import os
 from discord.ext import commands
 
 client = commands.Bot(command_prefix = [","]) # creating bot variable with prefixes
-client.remove_command("help") # remove default help command
+# client.remove_command("help") # remove default help command
 
 eColor = discord.Color.blue()
 
