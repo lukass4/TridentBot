@@ -12,9 +12,9 @@ class utility(commands.Cog):
     async def on_ready(self): # when the cog starts
         print("[DEBUG] utility cog has been loaded.") # prints the cog has started
 
-    @commands.command()
-    async def help(self, ctx): # help command
-        await ctx.send(embed=embedMaker("Command not available", "This command is coming soon!", discord.Color.blue())) # sends help message
+#    @commands.command()
+#    async def help(self, ctx): # help command
+#        await ctx.send(embed=embedMaker("Command not available", "This command is coming soon!", discord.Color.blue())) # sends help message
 
     @commands.command(aliases=["latency", "pong"])
     async def ping(self, ctx): # latency command
