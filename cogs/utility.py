@@ -20,5 +20,21 @@ class utility(commands.Cog):
     async def ping(self, ctx): # latency command
         await ctx.send(embed=embedMaker("Ping", f"My ping is {round(self.client.latency * 1000)}ms", discord.Color.blue())) # sends the bots ping in an embed 
 
+    @commands.command(aliases=["sn", "setnickname"])
+    async def setnick(self, ctx, member : discord.Member = None, nickname=None):
+        if member != None and nickname != None:
+            await member.edit(nick=nickname)
+            await ctx.send(embed=embedMaker("Nickname Change", f"{member.mention}'s nickname has been set to {nickname}", discord.Color.blue()))
+        else:
+            await ctx.send(embed=embedMaker("Nickname Change", "Please specify a user and a nickname.", discord.Color.blue()))
+
+    @commands.command(aliases=["profilepicture", "pfp"])
+    async def avatar(self, ctx, member : discord.Member = None):
+        if discord.Member != None:
+            avatar = f"{member.avatar_url}"
+            embed = discord.Embed(title=f"{member.display_name}'s Avatar", text=None, color=discord.Color.blue())
+            embed.set_image(url=member.avatar_url)
+            await ctx.send(embed=embed)
+
 def setup(client):
     client.add_cog(utility(client))
