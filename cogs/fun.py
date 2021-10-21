@@ -26,7 +26,7 @@ class fun(commands.Cog):
 
     @commands.command(aliases=["coinflip", "cf", "flip"])
     async def coin(self, ctx):
-        if random.choice[1, 2]:
+        if random.choice([1, 2]) == 1:
             await ctx.send(embed=embedMaker("Coin Flip :coin:", "Heads! ", discord.Color.blue()))
         else:
             await ctx.send(embed=embedMaker("Coin Flip :coin:", "Tails!", discord.Color.blue()))
