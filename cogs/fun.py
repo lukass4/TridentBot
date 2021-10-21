@@ -2,6 +2,7 @@ import discord
 from discord import client
 from discord.ext import commands
 from bot import embedMaker, comingSoon
+import random
 
 class fun(commands.Cog):
 
@@ -22,6 +23,13 @@ class fun(commands.Cog):
                 await ctx.send(embed=embedMaker("Booped!", f"{member} has been booped successfully.", discord.Color.blue()))
             except:
                 await ctx.send(embed=embedMaker("Not Booped. :frowning2:", f"{member} has not been booped successfully. I cannot message them.", discord.Color.blue()))
+
+    @commands.command(aliases=["coinflip", "cf", "flip"])
+    async def coin(self, ctx):
+        if random.choice[1, 2]:
+            await ctx.send(embed=embedMaker("Coin Flip :coin:", "Heads! ", discord.Color.blue()))
+        else:
+            await ctx.send(embed=embedMaker("Coin Flip :coin:", "Tails!", discord.Color.blue()))
 
 
 def setup(client):
