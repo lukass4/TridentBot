@@ -2,6 +2,7 @@ import discord
 from discord import client
 from discord.ext import commands
 from bot import embedMaker
+import time
 
 class utility(commands.Cog):
 
@@ -19,6 +20,21 @@ class utility(commands.Cog):
     @commands.command(aliases=["latency", "pong"])
     async def ping(self, ctx): # latency command
         await ctx.send(embed=embedMaker("Ping", f"My ping is {round(self.client.latency * 1000)}ms", discord.Color.blue())) # sends the bots ping in an embed 
+
+    @commands.command(aliases=["purge", "remove"])
+    async def clear(self, ctx, msgs=None):
+        if msgs != None:
+            purge = await ctx.channel.purge(limit=int(msgs)+1)
+            purge = len(purge)
+            purge = purge-1
+            if purge == 1:
+                plural = ""
+            else:
+                plural = "s"
+            await ctx.send(embed=embedMaker("Message Removal", f"{purge} message{plural} were removed!", discord.Color.blue()), delete_after=3)
+        else:
+            await ctx.send(embed=embedMaker("Message Removal", "Please specify an amount of messages you wish to remove.", discord.Color.blue()))
+
 
     @commands.command(aliases=["sn", "setnickname"])
     async def setnick(self, ctx, member : discord.Member = None, nickname=None):
