@@ -35,6 +35,9 @@ class maths(commands.Cog):
                 if symbol == "/": # if the symbol is /
                     await ctx.send(embed=embedMaker("Math Output", str(no1 / no2), discord.Color.blue())) # divide no1 and no2
 
+                if symbol == "^":
+                    await ctx.send(embed=embedMaker("Math Output", str(no1 ** no2), discord.Color.blue()))
+
             except ValueError: # if no1 or no2 is not a number
                 await ctx.send("1 or more arguments are incorrect, should be `number symbol number` (example: 2 * 5)") # error message
             
