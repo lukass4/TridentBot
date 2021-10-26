@@ -29,4 +29,3 @@ for filename in os.listdir("./cogs"): # loading cogs
         client.load_extension(f"cogs.{filename[:-3]}") # loads the cog without the .py on the end
 
 client.run("ODcwMjIzOTQyODM1NjUwNTYx.YQJpMw.xxM5gzu-0oRaRjnK-4jQ-otjUBE") # running with the token
-

@@ -22,6 +22,7 @@ class utility(commands.Cog):
         await ctx.send(embed=embedMaker("Ping", f"My ping is {round(self.client.latency * 1000)}ms", discord.Color.blue())) # sends the bots ping in an embed 
 
     @commands.command(aliases=["purge", "remove"])
+    @commands.has_permissions(manage_messages = True)
     async def clear(self, ctx, msgs=None):
         if msgs != None:
             purge = await ctx.channel.purge(limit=int(msgs)+1)
