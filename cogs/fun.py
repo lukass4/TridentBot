@@ -28,12 +28,7 @@ class fun(commands.Cog):
             except:
                 await ctx.send(embed=embedMaker("Not Booped. :frowning2:", f"{member} has not been booped successfully. I cannot message them.", discord.Color.blue()))
                 ctx.command.reset_cooldown(ctx)
-
-    @boop.error
-    async def booperror(self, ctx, error):
-        if isinstance(error, commands.CommandOnCooldown): # if there is a cooldown
-            await ctx.send(embed=embedMaker(f"Boop command on cooldown", f"You are on cooldown, retry in {math.floor(error.retry_after)} seconds.", discord.Color.blue()))
-        
+    
     @commands.command(aliases=["coinflip", "cf", "flip"])
     async def coin(self, ctx):
         if random.choice([1, 2]) == 1:

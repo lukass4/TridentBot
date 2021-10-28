@@ -53,5 +53,9 @@ class utility(commands.Cog):
             embed.set_image(url=member.avatar_url)
             await ctx.send(embed=embed)
 
+    @commands.command()
+    async def support(self, ctx):
+        await ctx.send(embed=embedMaker("Support", "Feel free to join my support server [here](<https://discord.gg/u3zTPVFEM7>).", discord.Color.blue()))
+
 def setup(client):
     client.add_cog(utility(client))

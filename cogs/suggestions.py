@@ -40,12 +40,6 @@ class suggestions(commands.Cog):
             await ctx.send(embed=embedMaker("Suggestion blank", "Please suggest something. ", discord.Color.blue()))
             ctx.command.reset_cooldown(ctx)
 
-
-    @suggest.error
-    async def suggesterror(self, ctx, error):
-        if isinstance(error, commands.CommandOnCooldown): # if there is a cooldown
-            await ctx.send(embed=embedMaker(f"Suggestion command on cooldown", f"You are on cooldown, retry in {math.floor(error.retry_after)} seconds.", discord.Color.blue()))
-
     @commands.command(aliases=["suggestchannel", "setsuggestionchannel", "setsuggestchannel", "setsuggestion", "setsuggest", "suggestionconfig"])
     @commands.has_permissions(administrator=True)
     async def suggestionchannel(self, ctx, channel:discord.TextChannel=None ):
