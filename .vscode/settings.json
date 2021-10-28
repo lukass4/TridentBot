@@ -5,5 +5,8 @@
     "files.exclude": {
         "**/__pycache__": true,
         "**/.vscode": true
-    }
+    },
+    "cSpell.words": [
+        "booperror"
+    ]
 }
