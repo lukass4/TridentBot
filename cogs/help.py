@@ -23,7 +23,6 @@ class help(commands.Cog):
             embed.add_field(name="Utility Commands", value="`,help utility`", inline=True)
             embed.add_field(name="Suggestions Commands", value="`,help suggestions`", inline=True)
             embed.add_field(name="Moderation Commands", value="`,help moderation`", inline=True)
-            debug("help command ran")
             await ctx.send(embed=embed)
 
         elif category == "fun":
