@@ -3,7 +3,7 @@ import os
 from discord.ext import commands
 
 client = commands.Bot(command_prefix = [","]) # creating bot variable with prefixes
-# client.remove_command("help") # remove default help command
+client.remove_command("help") # remove default help command
 
 eColor = discord.Color.blue()
 
@@ -23,6 +23,11 @@ def comingSoon(): # embed maker function
     embed.set_author(name=client.user.display_name, icon_url=client.user.avatar_url) # sets the name and profile picture to the bots
     return embed
 
+def debug(text):
+    if not text:
+        pass
+    else:
+        print(f"[DEBUG] {text}")
 
 for filename in os.listdir("./cogs"): # loading cogs
     if filename.endswith(".py"):

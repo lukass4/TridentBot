@@ -38,6 +38,7 @@ class utility(commands.Cog):
 
 
     @commands.command(aliases=["sn", "setnickname"])
+    @commands.has_permissions(manage_nicknames=True)
     async def setnick(self, ctx, member : discord.Member = None, nickname=None):
         if member != None and nickname != None:
             await member.edit(nick=nickname)
