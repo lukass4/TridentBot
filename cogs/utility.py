@@ -1,8 +1,6 @@
 import discord
-from discord import client
 from discord.ext import commands
-from bot import embedMaker
-import time
+from bot import comingSoon, embedMaker
 
 class utility(commands.Cog):
 
@@ -12,10 +10,6 @@ class utility(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self): # when the cog starts
         print("[DEBUG] utility cog has been loaded.") # prints the cog has started
-
-#    @commands.command()
-#    async def help(self, ctx): # help command
-#        await ctx.send(embed=embedMaker("Command not available", "This command is coming soon!", discord.Color.blue())) # sends help message
 
     @commands.command(aliases=["latency", "pong"])
     async def ping(self, ctx): # latency command
@@ -36,10 +30,23 @@ class utility(commands.Cog):
         else:
             await ctx.send(embed=embedMaker("Message Removal", "Please specify an amount of messages you wish to remove.", discord.Color.blue()))
 
+    @commands.command(aliases=["usercooldown", "cooldownend", "resetcooldown"])
+    @commands.has_permissions()
+    async def removecooldown(self, ctx, member:discord.Member = None):
+        if not member:
+            await ctx.send(embed=embedMaker("Nickname Change", "Please specify a user.", discord.Color.blue()))
+        else:
+            for command in self.client.commands:
+                command.reset_cooldown(ctx)
+
+    @commands.command(aliases=["startpoll"])
+    async def poll(self, ctx):
+        await ctx.send(comingSoon())
+
 
     @commands.command(aliases=["sn", "setnickname"])
     @commands.has_permissions(manage_nicknames=True)
-    async def setnick(self, ctx, member : discord.Member = None, nickname=None):
+    async def setnick(self, ctx, member : discord.Member = None, *, nickname=None):
         if member != None and nickname != None:
             await member.edit(nick=nickname)
             await ctx.send(embed=embedMaker("Nickname Change", f"{member.mention}'s nickname has been set to {nickname}", discord.Color.blue()))
@@ -54,9 +61,10 @@ class utility(commands.Cog):
             embed.set_image(url=member.avatar_url)
             await ctx.send(embed=embed)
 
+
     @commands.command()
-    async def support(self, ctx):
-        await ctx.send(embed=embedMaker("Support", "Feel free to join my support server [here](<https://discord.gg/u3zTPVFEM7>).", discord.Color.blue()))
+    async def supportserver(self, ctx):
+        await ctx.send(embed=embedMaker("", "Feel free to join my support server [here](<https://discord.gg/u3zTPVFEM7>).", discord.Color.blue()))
 
 def setup(client):
     client.add_cog(utility(client))

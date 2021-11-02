@@ -43,6 +43,7 @@ class help(commands.Cog):
             embed.add_field(name=",purge <no of messages>", value="Clears a number of messages", inline=False)
             embed.add_field(name=",setnick <@user>", value="Sets a users nickname", inline=False)
             embed.add_field(name=",avatar <@user>", value="Fetches a users profile picture", inline=False)
+            embed.add_field(name=",resetcooldown <@user>", value="Resets all of the users command cooldowns.")
             embed.set_footer(text="Use `,help` to see all modules")
             await ctx.send(embed=embed)
 

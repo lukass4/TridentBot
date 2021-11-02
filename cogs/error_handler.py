@@ -21,7 +21,7 @@ class error_handler(commands.Cog):
         if isinstance(error, commands.CommandOnCooldown): # if there is a cooldown
             await ctx.send(embed=embedMaker(f"Command on cooldown", f"That command is on cooldown, retry in {floor(error.retry_after)} seconds.", discord.Color.blue()))
         if isinstance(error, commands.MissingPermissions):
-            await ctx.send(embed=embedMaker(f"Missing Permissions", f"You do not have permissions to use this command.\nIf you think you should be able to do this command please join the support server (,support)", discord.Color.blue()))
+            await ctx.send(embed=embedMaker(f"Missing Permissions", f"You do not have permissions to use this command.\nIf you think you should be able to do this command please join the support server (,supportserver)", discord.Color.blue()))
 
 
 def setup(client):

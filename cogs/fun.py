@@ -1,10 +1,8 @@
 import discord
-from discord import client
 from discord.ext import commands
 from discord.ext.commands.cooldowns import BucketType
-from bot import embedMaker, comingSoon
+from bot import embedMaker
 import random
-import math
 
 class fun(commands.Cog):
 

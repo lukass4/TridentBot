@@ -1,10 +1,8 @@
 import discord
-from discord import client
 from discord.ext import commands
 from discord.ext.commands.cooldowns import BucketType
-from bot import embedMaker, comingSoon
+from bot import embedMaker
 import json
-import math
 
 class suggestions(commands.Cog):
 
@@ -16,7 +14,7 @@ class suggestions(commands.Cog):
         print("[DEBUG] suggestions cog has been loaded.") # prints the cog has started
 
     @commands.command(aliases=["suggestion", "createsuggestion"])
-    @commands.cooldown(1, 300, BucketType.user) # 5 minute user cooldown
+    @commands.cooldown(1, 300, BucketType.member) # 5 minute user cooldown
     async def suggest(self, ctx, *, suggestion=None):
         if suggestion:
             guild = str(ctx.message.guild.id) # gets the guild ID and makes it into a string
