@@ -55,7 +55,7 @@ class help(commands.Cog):
             await ctx.send(embed=embed)
 
         elif category == "moderation":
-            await ctx.send(comingSoon())
+            await ctx.send(embed=comingSoon())
 
         else:
             await ctx.send(embed=embedMaker("Error", "That is not a valid help command, use `,help` to see all modules.", discord.Color.blue()))
